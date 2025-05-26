@@ -177,60 +177,61 @@
   <div id="resultado"></div>
 
   <script>
-    function evaluar() {
-      const respuestasCorrectas = { 
-        p1: 'a', p2: 'a', p3: 'a', p4: 'b', p5: 'b', 
-        p6: 'b', p7: 'a', p8: 'c', p9: 'a', p10: 'c'
-      };
-      let puntaje = 0;
-      let datos = {};
+   function evaluar() {
+  const respuestasCorrectas = { 
+    p1: 'a', p2: 'a', p3: 'a', p4: 'b', p5: 'b', 
+    p6: 'b', p7: 'a', p8: 'c', p9: 'a', p10: 'c'
+  };
+  let puntaje = 0;
+  let datos = {};
 
-      const nombre = document.getElementById("nombre").value.trim();
-      const grado = document.getElementById("grado").value.trim();
+  const nombre = document.getElementById("nombre").value.trim();
+  const grado = document.getElementById("grado").value.trim();
 
-      if (!nombre || !grado) {
-        alert("Por favor completa tu nombre y grado antes de enviar.");
-        return;
-      }
+  if (!nombre || !grado) {
+    alert("Por favor completa tu nombre y grado antes de enviar.");
+    return;
+  }
 
-      datos['nombre'] = nombre;
-      datos['grado'] = grado;
-      datos['evaluacion'] = 'Movimiento rectilíneo';
+  datos['nombre'] = nombre;
+  datos['grado'] = grado;
 
-      for (let key in respuestasCorrectas) {
-        const seleccion = document.querySelector(`input[name="${key}"]:checked`);
-        if (seleccion) {
-          datos[key] = seleccion.value;
-          if (seleccion.value === respuestasCorrectas[key]) {
-            puntaje++;
-          }
-        } else {
-          datos[key] = '';
-        }
-      }
-
-      datos['puntaje'] = puntaje;
-      const notaSobre5 = (puntaje / 10) * 5;
-      datos['nota_sobre_5'] = notaSobre5.toFixed(2);
-      datos['timestamp'] = new Date().toISOString();
-
-      fetch('https://script.google.com/macros/s/AKfycbzFJRyZ7WbL4YljLwIDS4dpPkeQ6-l-h54o6nD5PN3_hLJCgFuQ3ul2HBWWf9vO8yWA0g/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        cache: 'no-cache',
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: JSON.stringify(datos)
-      })
-      .then(() => {
-        document.getElementById("resultado").innerHTML = `Tu puntaje es: ${puntaje} / 10. Nota (0-5): ${notaSobre5.toFixed(2)}`;
-        alert("Respuestas enviadas correctamente. Tu puntaje es: " + puntaje + "/10. Nota: " + notaSobre5.toFixed(2));
-      })
-      .catch(error => {
-        console.error('Error al enviar datos:', error);
-        alert('Hubo un error al enviar tus respuestas. Por favor, inténtalo de nuevo o contacta al profesor.');
-      });
+  // Asegura TODAS las respuestas p1 a p10, aunque estén vacías
+  for (let i = 1; i <= 10; i++) {
+    const key = 'p' + i;
+    const seleccion = document.querySelector(`input[name="${key}"]:checked`);
+    datos[key] = seleccion ? seleccion.value : '';
+    if (seleccion && seleccion.value === respuestasCorrectas[key]) {
+      puntaje++;
     }
+  }
+
+  datos['puntaje'] = puntaje;
+  const notaSobre5 = (puntaje / 10) * 5;
+  datos['nota_sobre_5'] = notaSobre5.toFixed(2);
+  datos['evaluacion'] = 'Movimiento rectilíneo';
+
+  // Si quieres depurar, activa la línea siguiente:
+  // console.log(datos);
+
+  fetch('https://script.google.com/macros/s/AKfycbzFJRyZ7WbL4YljLwIDS4dpPkeQ6-l-h54o6nD5PN3_hLJCgFuQ3ul2HBWWf9vO8yWA0g/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    cache: 'no-cache',
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+    body: JSON.stringify(datos)
+  })
+  .then(() => {
+    document.getElementById("resultado").innerHTML = `Tu puntaje es: ${puntaje} / 10. Nota (0-5): ${notaSobre5.toFixed(2)}`;
+    alert("Respuestas enviadas correctamente. Tu puntaje es: " + puntaje + "/10. Nota: " + notaSobre5.toFixed(2));
+  })
+  .catch(error => {
+    console.error('Error al enviar datos:', error);
+    alert('Hubo un error al enviar tus respuestas. Por favor, inténtalo de nuevo o contacta al profesor.');
+  });
+}
+
   </script>
 </body>
 </html>
