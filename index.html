@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evaluación de Física: Movimiento Rectilíneo</title> 
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- MathJax para renderizar ecuaciones en LaTeX -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+
+<body>
+  <div class="encabezado">
+    <img src="Encab_Taller_Physics_Rosales_backup.svg" alt="Encabezado Evaluación Física" style="width: 100%; max-width: 1200px; height: auto;">
+    <h1>Evaluación de Física: Movimiento Rectilíneo</h1>
+    <p><strong>Autor:</strong> Hayzar Hernández Bustos – IED Los Rosales</p>
+    <p><strong>Fecha límite de entrega:</strong> 7 de junio de 2025</p>
+  </div>
+
+  <!-- Recursos de apoyo para el test de Movimiento Rectilíneo -->
+  <div class="pregunta" style="background: #e6f2ff;">
+    <h2>Material de apoyo: Movimiento Rectilíneo</h2>
+    <p>
+      <b>Lectura recomendada:</b><br>
+      <a href="fisica-conceptual_paulhewitt-Movimiento.pdf" target="_blank" style="font-weight:bold; color: #007acc;">
+        Leer: Movimiento rectilíneo – Paul Hewitt (PDF)
+      </a>
+    </p>
+    <p><b>Videos de apoyo:</b></p>
+    <div class="centrado">
+      <iframe width="350" height="196" src="https://www.youtube.com/embed/PP1orhr_MCA" title="Movimiento rectilíneo 1" frameborder="0" allowfullscreen></iframe>
+      <iframe width="350" height="196" src="https://www.youtube.com/embed/bbUFuj3MW0s" title="Movimiento rectilíneo 2" frameborder="0" allowfullscreen></iframe>
+      <iframe width="350" height="196" src="https://www.youtube.com/embed/Sk5N8Qyhyos" title="Movimiento rectilíneo 3" frameborder="0" allowfullscreen></iframe>
+      <iframe width="350" height="196" src="https://www.youtube.com/embed/8GM0w5Lv0ZE" title="Movimiento rectilíneo 4" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <p>
+      <i>Estudia estos recursos antes de iniciar el test.</i>
+    </p>
+  </div>
+
+  <div class="pregunta">
+    <p>Nombre completo:</p>
+    <input type="text" id="nombre" name="nombre" required>
+  </div>
+  <div class="pregunta">
+    <p>Grado:</p>
+    <input type="text" id="grado" name="grado" required>
+  </div>
+
+  <h2>Responda seleccionando una única opción por pregunta</h2>
+
+  <form id="formulario">
+    <!-- PREGUNTAS AQUÍ (sin cambios, ya las tienes bien estructuradas) -->
+    <!-- ... (todas tus preguntas como las tienes) ... -->
+
+    <!-- Ejemplo de la primera pregunta (las demás van igual): -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Interpretación de fenómenos (IF)</p>
+      <p><strong>Contexto:</strong> Un ciclista recorre 100 metros en 20 segundos.</p>
+      <p>1. ¿Cuál es la rapidez media del ciclista?</p>
+      <input type="radio" name="p1" value="a"> A. $2 \ \mathrm{m/s}$<br>
+      <input type="radio" name="p1" value="b"> B. $5 \ \mathrm{m/s}$<br>
+      <input type="radio" name="p1" value="c"> C. $10 \ \mathrm{m/s}$<br>
+      <input type="radio" name="p1" value="d"> D. $20 \ \mathrm{m/s}$<br>
+    </div>
+    <!-- ... (todas las demás preguntas igual que tienes) ... -->
+    
+    <!-- PREGUNTA 2 -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Explicación de conceptos (EC)</p>
+      <p><strong>Contexto:</strong> Un auto viaja a 60 km/h hacia el norte y otro a 60 km/h hacia el sur.</p>
+      <p>2. ¿Tienen la misma rapidez y velocidad?</p>
+      <input type="radio" name="p2" value="a"> A. Misma rapidez, distinta velocidad<br>
+      <input type="radio" name="p2" value="b"> B. Distinta rapidez, misma velocidad<br>
+      <input type="radio" name="p2" value="c"> C. Misma rapidez y velocidad<br>
+      <input type="radio" name="p2" value="d"> D. Distinta rapidez y velocidad<br>
+    </div>
+
+    <!-- PREGUNTA 3 -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Resolución de problemas (RP)</p>
+      <p><strong>Contexto:</strong> Un peatón camina 300 metros en 5 minutos.</p>
+      <p>3. ¿Cuál es su rapidez media en metros por segundo?</p>
+      <input type="radio" name="p3" value="a"> A. $1 \ \mathrm{m/s}$<br>
+      <input type="radio" name="p3" value="b"> B. $2 \ \mathrm{m/s}$<br>
+      <input type="radio" name="p3" value="c"> C. $3 \ \mathrm{m/s}$<br>
+      <input type="radio" name="p3" value="d"> D. $60 \ \mathrm{m/s}$<br>
+    </div>
+
+    <!-- PREGUNTA 4 -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Interpretación gráfica (IG)</p>
+      <p><strong>Contexto:</strong> El velocímetro de un auto marca 80 km/h durante todo el trayecto, pero el auto da varias vueltas en una glorieta.</p>
+      <p>4. ¿La velocidad del auto es constante?</p>
+      <input type="radio" name="p4" value="a"> A. Sí, porque la rapidez es constante<br>
+      <input type="radio" name="p4" value="b"> B. No, porque la dirección cambia<br>
+      <input type="radio" name="p4" value="c"> C. Sí, si no frena<br>
+      <input type="radio" name="p4" value="d"> D. No, porque la distancia cambia<br>
+    </div>
+
+    <!-- PREGUNTA 5 -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Aplicación de conceptos (AC)</p>
+      <p><strong>Contexto:</strong> Un tren recorre 400 km en 5 horas sin detenerse.</p>
+      <p>5. ¿Cuál fue su rapidez media en km/h?</p>
+      <input type="radio" name="p5" value="a"> A. $40$<br>
+      <input type="radio" name="p5" value="b"> B. $80$<br>
+      <input type="radio" name="p5" value="c"> C. $100$<br>
+      <input type="radio" name="p5" value="d"> D. $400$<br>
+    </div>
+
+    <!-- PREGUNTA 6 -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Interpretación de fenómenos (IF)</p>
+      <p><strong>Contexto:</strong> Dos ciclistas parten del mismo punto: uno viaja a 10 km/h y el otro a 20 km/h, ambos en la misma dirección.</p>
+      <p>6. ¿Cuál llegará más lejos en una hora y cuánta será la diferencia de distancia?</p>
+      <input type="radio" name="p6" value="a"> A. Ambos recorren lo mismo<br>
+      <input type="radio" name="p6" value="b"> B. El segundo recorre 10 km más<br>
+      <input type="radio" name="p6" value="c"> C. El primero recorre 10 km más<br>
+      <input type="radio" name="p6" value="d"> D. Ambos recorren 20 km<br>
+    </div>
+
+    <!-- PREGUNTA 7 -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Explicación de conceptos (EC)</p>
+      <p><strong>Contexto:</strong> Un objeto se mueve en línea recta a velocidad constante.</p>
+      <p>7. ¿Qué puedes afirmar sobre su aceleración?</p>
+      <input type="radio" name="p7" value="a"> A. Es cero<br>
+      <input type="radio" name="p7" value="b"> B. Es positiva<br>
+      <input type="radio" name="p7" value="c"> C. Es negativa<br>
+      <input type="radio" name="p7" value="d"> D. Cambia constantemente<br>
+    </div>
+
+    <!-- PREGUNTA 8 -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Resolución de problemas (RP)</p>
+      <p><strong>Contexto:</strong> Un automóvil parte del reposo y alcanza una velocidad de 36 km/h en 10 segundos.</p>
+      <p>8. ¿Cuál fue su aceleración media en m/s²? (Nota: $1$ km/h = $0.278$ m/s)</p>
+      <input type="radio" name="p8" value="a"> A. $0.1$<br>
+      <input type="radio" name="p8" value="b"> B. $0.5$<br>
+      <input type="radio" name="p8" value="c"> C. $1.0$<br>
+      <input type="radio" name="p8" value="d"> D. $2.8$<br>
+    </div>
+
+    <!-- PREGUNTA 9 -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Aplicación de conceptos (AC)</p>
+      <p><strong>Contexto:</strong> Un estudiante dice: “¡Voy a 30 km/h en bicicleta!”.</p>
+      <p>9. ¿Esto describe su rapidez o su velocidad?</p>
+      <input type="radio" name="p9" value="a"> A. Rapidez<br>
+      <input type="radio" name="p9" value="b"> B. Velocidad<br>
+      <input type="radio" name="p9" value="c"> C. Ambas<br>
+      <input type="radio" name="p9" value="d"> D. Ninguna<br>
+    </div>
+
+    <!-- PREGUNTA 10 -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Interpretación de fenómenos (IF)</p>
+      <p><strong>Contexto:</strong> Un bus viaja en línea recta con rapidez constante de 60 km/h durante 2 horas.</p>
+      <p>10. ¿Qué distancia recorrió?</p>
+      <input type="radio" name="p10" value="a"> A. $60$ km<br>
+      <input type="radio" name="p10" value="b"> B. $90$ km<br>
+      <input type="radio" name="p10" value="c"> C. $120$ km<br>
+      <input type="radio" name="p10" value="d"> D. $180$ km<br>
+    </div>
+
+    <button type="button" onclick="evaluar()">Enviar respuestas</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    function evaluar() {
+      const respuestasCorrectas = { 
+        p1: 'a', p2: 'a', p3: 'a', p4: 'b', p5: 'b', 
+        p6: 'b', p7: 'a', p8: 'c', p9: 'a', p10: 'c'
+      };
+      let puntaje = 0;
+      let datos = {};
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const grado = document.getElementById("grado").value.trim();
+
+      if (!nombre || !grado) {
+        alert("Por favor completa tu nombre y grado antes de enviar.");
+        return;
+      }
+
+      datos['nombre'] = nombre;
+      datos['grado'] = grado;
+      datos['evaluacion'] = 'Movimiento rectilíneo';
+
+      for (let key in respuestasCorrectas) {
+        const seleccion = document.querySelector(`input[name="${key}"]:checked`);
+        if (seleccion) {
+          datos[key] = seleccion.value;
+          if (seleccion.value === respuestasCorrectas[key]) {
+            puntaje++;
+          }
+        } else {
+          datos[key] = '';
+        }
+      }
+
+      datos['puntaje'] = puntaje;
+      const notaSobre5 = (puntaje / 10) * 5;
+      datos['nota_sobre_5'] = notaSobre5.toFixed(2);
+      datos['timestamp'] = new Date().toISOString();
+
+      fetch('https://script.google.com/macros/s/AKfycbxSTf-3CtjMs7t1f8U8Sjjleddl-Qo6P03LUN6jDmCmJcriM-nzUGgXP2djTE6d41Me4A/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        cache: 'no-cache',
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(datos)
+      })
+      .then(() => {
+        document.getElementById("resultado").innerHTML = `Tu puntaje es: ${puntaje} / 10. Nota (0-5): ${notaSobre5.toFixed(2)}`;
+        alert("Respuestas enviadas correctamente. Tu puntaje es: " + puntaje + "/10. Nota: " + notaSobre5.toFixed(2));
+      })
+      .catch(error => {
+        console.error('Error al enviar datos:', error);
+        alert('Hubo un error al enviar tus respuestas. Por favor, inténtalo de nuevo o contacta al profesor.');
+      });
+    }
+  </script>
+</body>
+</html>
